@@ -11,16 +11,6 @@ angular.module('ngIntlTelInput')
             return;
           }
 
-
-          // Override input directive $render which uses val instead of setNumber
-          ctrl.$render = function () {
-              // Workaround for Firefox validation #12102.
-              var value = ctrl.$isEmpty(ctrl.$viewValue) ? '' : ctrl.$viewValue;
-              if (element.intlTelInput('getNumber') !== value) {
-                  element.intlTelInput('setNumber', value);
-              }
-          };
-
           // Set opts specified with directive attribute
           if (attr.ngIntlTelInput) {
               var runtimeOpts = scope.$eval(attr.ngIntlTelInput);
