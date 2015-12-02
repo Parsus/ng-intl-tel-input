@@ -9,7 +9,7 @@
     "start": "nohup http-server",
     "jshint": "jshint .",
     "karma": "karma start karma.conf.js",
-    "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.{module,provider,directive}.js -o dist/ng-intl-tel-input.js",
+    "concat": "node ./node_modules/concat-cli/index.js -f ng-intl-tel-input.module.js ng-intl-tel-input.provider.js ng-intl-tel-input.directive.js -o dist/ng-intl-tel-input.js",
     "uglify": "uglify -s dist/ng-intl-tel-input.js -o dist/ng-intl-tel-input.min.js",
     "webdriver-update": "webdriver-manager update",
     "protractor": "protractor protractor.conf.js",
