@@ -36,6 +36,13 @@ angular.module('ngIntlTelInput')
             $log.warn('ng-intl-tel-input can only be applied to a *text* input');
             return;
           }
+
+          // Set opts specified with directive attribute
+          if (attr.ngIntlTelInput) {
+              var runtimeOpts = scope.$eval(attr.ngIntlTelInput);
+              ngIntlTelInput.set(runtimeOpts);
+          }
+
           // Override default country.
           if (attr.defaultCountry) {
             ngIntlTelInput.set({defaultCountry: attr.defaultCountry});
@@ -62,6 +69,9 @@ angular.module('ngIntlTelInput')
                 value = '+' + value;
               }
               elm.intlTelInput('setNumber', value);
+
+              // Update value to number formatted by plugin
+              value = elm.val();
             }
             return value;
           });
