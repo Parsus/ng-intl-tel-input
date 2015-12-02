@@ -43,6 +43,9 @@ angular.module('ngIntlTelInput')
                 value = '+' + value;
               }
               elm.intlTelInput('setNumber', value);
+
+              // Update value to number formatted by plugin
+              value = elm.val();
             }
             return value;
           });
