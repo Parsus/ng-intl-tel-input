@@ -14,7 +14,8 @@ angular.module('ngIntlTelInput')
                 var opts = {};
 
                 // Set opts specified with directive attribute
-                if (attr.ngIntlTelInput) {
+                if (attr.ngIntlTelInput &&
+                    attr.$normalize(attr.ngIntlTelInput) !== 'ngIntlTelInput') {
                     opts = scope.$eval(attr.ngIntlTelInput);
                 }
 
