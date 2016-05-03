@@ -55,7 +55,8 @@ angular.module('ngIntlTelInput')
                 };
                 // Set model value to valid, formatted version.
                 ctrl.$parsers.push(function (value) {
-                    return elm.intlTelInput('getNumber').replace(/[^\d]/, '');
+                    var extension = elm.intlTelInput('getExtension');
+                    return elm.intlTelInput('getNumber').replace(/[^\d]/, '') + (extension ? 'x' + extension : '');
                 });
                 // Set input value to model value and trigger evaluation.
                 ctrl.$formatters.push(function (value) {
